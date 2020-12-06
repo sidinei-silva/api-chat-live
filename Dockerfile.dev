@@ -1,0 +1,11 @@
+FROM node:12-alpine AS development
+
+ENV NODE_ENV=development
+
+RUN apk add --no-cache tzdata
+
+WORKDIR /var/www/html/project/back
+
+COPY package*.json ./
+
+RUN npm install
